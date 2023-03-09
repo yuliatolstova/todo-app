@@ -20,8 +20,8 @@
   },
   "lint-staged": {
     "*.ts": "npx tsc --noEmit",
-    "*.{js,jsx,ts,tsx}": "npx eslint",
-    "*.{js,jsx,ts,tsx,html,css}": "npx prettier --check"
+    "*.{js,jsx,ts,tsx}": "npm run lint:fix",
+    "*.{js,jsx,ts,tsx,html,css}": "npm run format"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,7 +30,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./",
     "lint:fix": "eslint ./ --fix",
-    "format": "prettier ./",
+    "format": "prettier ./src --write",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -69,13 +69,5 @@
   },
   "keywords": [],
   "author": "yuliatolstova",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yuliatolstova/todo.git"
-  },
-  "bugs": {
-    "url": "https://github.com/yuliatolstova/todo/issues"
-  },
-  "homepage": "https://github.com/yuliatolstova/todo#readme"
+  "license": "ISC"
 }
