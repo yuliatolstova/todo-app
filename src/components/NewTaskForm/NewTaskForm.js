@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-export default class AppHeader extends Component {
+import './NewTaskForm.css'
+
+export default class NewTaskForm extends Component {
   static defaultProps = {
     onAdd: () => {},
   }

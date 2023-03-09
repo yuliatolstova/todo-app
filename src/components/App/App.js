@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-import TodoList from '../todo-list.js'
-import AppHeader from '../app-header.js'
-import AppFooter from '../app-footer.js'
-
+import TaskList from '../TaskList/TaskList.js'
+import NewTaskForm from '../NewTaskForm/NewTaskForm.js'
+import Footer from '../Footer/Footer.js'
+import './App.css'
 export default class App extends Component {
   maxId = 100
 
@@ -64,12 +64,12 @@ export default class App extends Component {
     const todoCount = todoData.filter((el) => !el.completed).length
     return (
       <section className="todoapp">
-        <AppHeader onAdd={this.onAdd} />
+        <NewTaskForm onAdd={this.onAdd} />
 
         <section className="main">
-          <TodoList todoData={visibleItems} onDelete={this.onDelete} onToggleCompleted={this.onToggleCompleted} />
+          <TaskList todoData={visibleItems} onDelete={this.onDelete} onToggleCompleted={this.onToggleCompleted} />
         </section>
-        <AppFooter
+        <Footer
           todoCount={todoCount}
           onDelete={this.onDelete}
           todoData={todoData}

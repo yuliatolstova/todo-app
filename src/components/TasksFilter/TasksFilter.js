@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-export default class TodoFilter extends Component {
+import './TasksFilter.css'
+
+export default class TasksFilter extends Component {
   static defaultProps = {
     onFilterChange: () => {},
     filter: 'all',

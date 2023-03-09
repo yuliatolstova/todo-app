@@ -1,34 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import TodoListItem from './todo-list-item'
+import './TaskList.css'
+import Task from '../Task/Task'
 
-function TodoList({ todoData, onDelete, onToggleCompleted }) {
+function TasksList({ todoData, onDelete, onToggleCompleted }) {
   const elements = todoData.map((item) => {
     const { id, ...itemProps } = item
     return (
-      <TodoListItem
-        {...itemProps}
-        key={id}
-        onDelete={() => onDelete(id)}
-        onToggleCompleted={() => onToggleCompleted(id)}
-      />
+      <Task {...itemProps} key={id} onDelete={() => onDelete(id)} onToggleCompleted={() => onToggleCompleted(id)} />
     )
   })
 
   return <ul className="todo-list">{elements}</ul>
 }
-TodoList.defaultProps = {
+TasksList.defaultProps = {
   todoData: [],
   onDelete: () => {},
   onToggleCompleted: () => {},
   completed: false,
 }
-TodoList.typeProps = {
+TasksList.typeProps = {
   todoData: PropTypes.array,
   onDelete: PropTypes.func,
   onToggleCompleted: PropTypes.func,
   completed: PropTypes.bool,
 }
 
-export default TodoList
+export default TasksList
