@@ -11,6 +11,7 @@ function TaskList({ todoData, onDelete, onToggleCompleted, onEdit, onSubmitEdit 
       <Task
         {...itemProps}
         key={id}
+        id={id}
         onDelete={() => onDelete(id)}
         onToggleCompleted={() => onToggleCompleted(id)}
         onEdit={() => onEdit(id)}

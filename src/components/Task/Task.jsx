@@ -24,23 +24,23 @@ export default class Task extends Component {
     this.setState({ value: event.target.value })
   }
   render() {
-    const { label, onDelete, onToggleCompleted, completed, edit, onEdit, onSubmitEdit } = this.props
+    const { label, onDelete, onToggleCompleted, completed, edit, onEdit, onSubmitEdit, id } = this.props
     const { value, setTask } = this.state
     const time = formatDistanceToNow(new Date())
     let className = ''
     return edit ? (
       <li className="editing">
         <form onSubmit={onSubmitEdit}>
-          <input type="text" defaultValue={value} onChange={setTask} />
+          <input className="edit" type="text" defaultValue={value} onChange={setTask} />
         </form>
       </li>
     ) : (
       <li className={completed ? (className += 'completed') : className}>
         <div className="view">
-          <input className="toggle" type="checkbox" onClick={onToggleCompleted} />
-          <label>
+          <input id={id} className="toggle" type="checkbox" onClick={onToggleCompleted} checked={completed} />
+          <label htmlFor={id}>
             <span className="description">{label}</span>
-            <span className="created">{time}</span>
+            <span className="created">created {time} ago</span>
           </label>
           <button className="icon icon-edit" onClick={onEdit} />
           <button className="icon icon-destroy" onClick={onDelete} />
